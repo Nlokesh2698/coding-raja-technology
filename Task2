@@ -1,0 +1,53 @@
+class Transaction:
+    def init(self, category, amount):
+        self.category = category
+        self.amount = amount
+
+class BudgetTracker:
+    def init(self):
+        self.income = 0
+        self.expenses = []
+        self.categories = {}
+
+    def add_income(self, amount):
+        self.income += amount
+
+    def add_expense(self, category, amount):
+        self.expenses.append(Transaction(category, amount))
+        if category in self.categories:
+            self.categories[category] += amount
+        else:
+            self.categories[category] = amount
+
+    def calculate_remaining_budget(self):
+        total_expenses = sum(transaction.amount for transaction in self.expenses)
+        remaining_budget = self.income - total_expenses
+        return remaining_budget
+
+    def analyze_expenses(self):
+        # Analyze expenses by category and display insights
+        pass
+
+    def save_transactions(self, filename):
+        # Save transactions to a file
+        pass
+
+    def load_transactions(self, filename):
+        # Load transactions from a file
+        pass
+
+def main():
+    budget_tracker = BudgetTracker()
+    # Load previous transactions
+    budget_tracker.load_transactions("transactions.txt")
+
+    while True:
+        # Display menu options
+        # Prompt user for choice
+        # Perform actions based on user input
+        # Update budget tracker accordingly
+        # Save transactions after each update
+
+if name == "main":
+    main()
+
